@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="description" content="欢迎来到狂生的奇妙世界！">
+    <meta name="keywords" content="狂生,狂生,个人主页,个人网站">
+    <title></title>
+    
+    <!-- 预连接关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- MDI 字体使用 CDN 并行加载 -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css"></noscript>
+    
+    <!-- 异步加载统计脚本 -->
+    <script async>
+     var _mtj = _mtj || [];
+     (function () {
+     var mtj = document.createElement("script");
+     mtj.src = "https://node95.aizhantj.com:21233/tjjs/?k=8swu3iolgi7";
+     var s = document.getElementsByTagName("script")[0];
+     s.parentNode.insertBefore(mtj, s);
+       })();
+    </script>
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
+<!-- 迷宫游戏代码放在这里 -->
+<script>
+// 迷宫游戏代码
+(function() {
+    // 只在客户端运行
+    if (typeof window === 'undefined') return;
+    
+    console.log(
+        '%c 🎮 欢迎来到狂生的控制台迷宫！',
+        'color: #ff6b81; font-size: 16px; font-weight: bold;'
+    );
+    console.log(
+        '%c 输入 startGame() 开始游戏',
+        'color: #4cd137; font-size: 14px;'
+    );
+    console.log(
+        '%c 使用 up()/down()/left()/right() 移动',
+        'color: #00a8ff; font-size: 12px;'
+    );
+    
+    // 字符串替换方法
+    String.prototype.replaceAt = function(index, replacement) {
+        if (index >= this.length) return this.toString();
+        return this.substring(0, index) + replacement + this.substring(index + 1);
+    };
+    
+    class ConsoleMaze {
+        constructor() {
+            this.maze = [
+                '##########',
+                '#→#     #',
+                '# # ### #',
+                '#   #   #',
+                '##### ###',
+                '#       #',
+                '# ##### #',
+                '#     #✨#',
+                '##########'
+            ];
+            this.playerPos = {x:1, y:1};
+            this.isPlaying = false;
+        }
+        
+        start() {
+            this.isPlaying = true;
+            this.render();
+            console.log(
+                '%c 🎯 游戏开始！控制台迷宫冒险～',
+                'color: #4cd137; font-size: 14px; font-weight: bold;'
+            );
+        }
+        
+        render() {
+            console.clear();
+            console.log(
+                '%c 🎮 控制台迷宫 | 狂生的秘密游戏',
+                'color: #fbc531; font-size: 18px; font-weight: bold;'
+            );
+            console.log(
+                '%c 使用 up()/down()/left()/right() 移动 | 目标：找到✨出口',
+                'color: #4cd137; font-size: 12px;'
+            );
+            console.log('══════════════════════════════');
+            
+            this.maze.forEach(row => {
+                let coloredRow = '';
+                for(let char of row) {
+                    switch(char) {
+                        case '#':
+                            coloredRow += '%c#';
+                            break;
+                        case '→':
+                            coloredRow += '%c→';
+                            break;
+                        case '✨':
+                            coloredRow += '%c✨';
+                            break;
+                        default:
+                            coloredRow += '%c ';
+                    }
+                }
+                
+                const styles = [];
+                for(let char of row) {
+                    switch(char) {
+                        case '#':
+                            styles.push('color: #7f8fa6; font-weight: bold;');
+                            break;
+                        case '→':
+                            styles.push('color: #e84118; font-weight: bold;');
+                            break;
+                        case '✨':
+                            styles.push('color: #fbc531; font-weight: bold;');
+                            break;
+                        default:
+                            styles.push('color: #2d3436;');
+                    }
+                }
+                
+                console.log(coloredRow, ...styles);
+            });
+            
+            console.log('══════════════════════════════');
+        }
+        
+        move(dx, dy) {
+            if (!this.isPlaying) {
+                console.log('%c ⚠ 游戏未开始！请输入 startGame() 开始游戏', 'color: #e84118');
+                return;
+            }
+            
+            const newX = this.playerPos.x + dx;
+            const newY = this.playerPos.y + dy;
+            
+            if (newY < 0 || newY >= this.maze.length || 
+                newX < 0 || newX >= this.maze[0].length) {
+                console.log('%c 🚧 到达边界！', 'color: #7f8fa6');
+                return;
+            }
+            
+            if (this.maze[newY][newX] === '#') {
+                console.log('%c 💥 撞墙了！', 'color: #e84118');
+                return;
+            }
+            
+            if (this.maze[newY][newX] === '✨') {
+                console.log('%c 🎉🎉🎉 恭喜通关！找到了狂生的秘密宝藏！', 
+                          'color: #fbc531; font-size: 20px; font-weight: bold;');
+                console.log('%c 💡 提示：这个网站还有更多彩蛋等你发现～', 
+                          'color: #4cd137; font-size: 16px;');
+                this.isPlaying = false;
+                return;
+            }
+            
+            this.maze[this.playerPos.y] = this.maze[this.playerPos.y].replace('→', ' ');
+            this.playerPos.x = newX;
+            this.playerPos.y = newY;
+            this.maze[newY] = this.maze[newY].replaceAt(newX, '→');
+            this.render();
+        }
+    }
+    
+    // 创建游戏实例
+    const game = new ConsoleMaze();
+    
+    // 暴露到全局，避免命名冲突
+    window.startGame = () => game.start();
+    window.ksUp = () => game.move(0, -1);
+    window.ksDown = () => game.move(0, 1);
+    window.ksLeft = () => game.move(-1, 0);
+    window.ksRight = () => game.move(1, 0);
+    
+    // 添加快捷方式
+    window.up = window.ksUp;
+    window.down = window.ksDown;
+    window.left = window.ksLeft;
+    window.right = window.ksRight;
+    
+})();
+</script>
