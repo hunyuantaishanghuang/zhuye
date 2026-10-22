@@ -201,11 +201,14 @@ const config = {
 
 	//项目卡片 其中 字段"show"控制初始卡片的text是否展开
 	projectcards: [
-	    { go: "🚀 前往", img: "img/sunshine.jpg", title: "简易网盘", subtitle: "随时可用", text: "闲的没事展开干什么呢，其他的内容都一样的，别展开了呀", url: "https://wp.suunion.online/", show: false },
-		{ go: "🗂️ 前往", img: "img/a.png", title: "网盘", subtitle:" 一个网盘，比百度网盘强点，就亿点点，但是速度并不特别出色", text: "怎么还展呀开，真的没什么好看的呀，就一个普普通通的个人网站呀，这里面怎么可能写有关个人隐私或者其它东西呀", url: "http://nas.suunion.online/", show: false },
-		{ go: "👍 前往", img: "img/c.jpg", title: "bt", subtitle: "不是变态，而是bt，也不是鼻涕，是bt", text: "当然，陌生人也欢迎，要联系我可以找找我联系方式", url: "https://suunion.online:8888/888888/", show: false },
-		{ go: "💍 前往", img: "img/f.jpg", title: "小游戏 ", subtitle: "game", text: "随机送一个网盘账号哦，你猜猜哪里能得到", url: "https://game.suunion.online", show: false },
-		{ go: "🔍 前往", img: "img/z.jpg", title: "调试", subtitle: "谨慎，不要随便点击陌生网页", text: "提醒！这里面几乎没有多余的布置。", url: "https://bug.suunion.online",show: false },
+	    { go: "🎮 前往", img: "img/sunshine.jpg", title: "治愈扫雪星球", subtitle: "3D 球面扫雪 + Boss 激战", text: "Three.js 与程序化 WebAudio 构建的微型星球扫雪游戏：4 位专属驾驶员绝技、Boss 蓄力破招机制、WebSocket 多人实时联机协作，来和好友一起扫雪打 Boss 吧！", url: "https://hunyuantaishanghuang.github.io/remix-3d-cozy-snow-plow-game/", show: false },
+		{ go: "🌍 前往", img: "img/b.jpg", title: "Remix Anywhere", subtitle: "AI 环球旅拍", text: "上传一张照片，AI 带你瞬移全球地标打卡：Gemini 生成旅拍大片与地点故事，Vite + React + Node 全栈应用，源码在 GitHub", url: "https://github.com/hunyuantaishanghuang/Remix-Anywhere", show: false },
+		{ go: "🌱 前往", img: "img/d.jpg", title: "口袋世界", subtitle: "微缩星球生态瓶", text: "Three.js 打造的微缩星球生态瓶：程序化生成地形与微缩景观，自由造景并保存作品到 GitHub 仓库，源码在 GitHub", url: "https://github.com/hunyuantaishanghuang/remix-pocket-world-terrarium", show: false },
+	    { go: "🚀 前往", img: "img/e.jpg", title: "个人主页", subtitle: "就是你现在看到的这个", text: "Vue3 + Vuetify + Vite 打造的个人主页，壁纸切换、音乐播放、隐藏诗歌应有尽有，觉得不错就去 GitHub 点个 Star 吧：）", url: "https://github.com/hunyuantaishanghuang/zhuye", show: false },
+		{ go: "🗂️ 前往", img: "img/a.png", title: "云盘", subtitle: "自建云存储服务", text: "一个自建云盘项目，文件存取随心所欲，数据掌握在自己手里才安心，源码都在 GitHub 上", url: "https://github.com/hunyuantaishanghuang/-", show: false },
+		{ go: "📝 前往", img: "img/c.jpg", title: "卫生管理", subtitle: "健康管理小工具", text: "一个卫生管理的小应用，界面简洁、功能实用，练手之作也值得一看", url: "https://github.com/hunyuantaishanghuang/-app", show: false },
+		{ go: "💬 前往", img: "img/f.jpg", title: "微信", subtitle: "微信相关开发实践", text: "与微信相关的开发实践，TypeScript 编写，探索更多可能", url: "https://github.com/hunyuantaishanghuang/weixin", show: false },
+		{ go: "⚡ 前往", img: "img/z.jpg", title: "能源", subtitle: "比赛项目", text: "比赛做的能源相关项目，TypeScript 全栈，从想法到落地的完整实践", url: "https://github.com/hunyuantaishanghuang/energy", show: false },
 	],
 
 	statement: ["备案号：日本省cqu备2024号", "Copyright © 2027 suunion"],
